@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://y3pti86kb02n"]
+
+[ext_resource type="Texture2D" uid="uid://2idxqqv1vjg" path="res://Assets/frame1.png" id="2_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://cscxlgpte5gyh" path="res://Assets/PixelRocketLauncher.png" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://r02ann7u182e" path="res://player.gd" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://d13dbj25g2iev" path="res://Assets/frame2.png" id="3_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://b2b5axmpfh1gf" path="res://Assets/frame3.png" id="4_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://dpp11fa2wbsh7" path="res://Assets/frame4.png" id="5_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://d1jcakifpx07a" path="res://Assets/frame5.png" id="6_3tkgg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dtqjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5ncpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wi0c6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hp6x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3tkgg")
+}],
+"loop": true,
+"name": &"Player",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtqjt"]
+radius = 40.0
+height = 206.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(610, 312)
+script = ExtResource("2_onrkg")
+speed = null
+health = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_onrkg")
+animation = &"Player"
+frame = 1
+frame_progress = 0.488936
+
+[node name="Gun" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -19)
+scale = Vector2(2, 2)
+texture = ExtResource("2_kpjcp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, 6)
+shape = SubResource("CapsuleShape2D_dtqjt")
+one_way_collision_margin = 1.5
+debug_color = Color(0, 0.64716, 0.218617, 0.42)

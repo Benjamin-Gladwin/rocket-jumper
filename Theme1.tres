@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c1b2k2fqs1j3c"]
+
+[ext_resource type="FontFile" uid="uid://dfjm3jek6n0xx" path="res://upheaval/upheavtt.ttf" id="1_7tnpn"]
+[ext_resource type="Texture2D" uid="uid://yx23j67vjgoj" path="res://SliderGrabber.png" id="1_qfeqt"]
+[ext_resource type="Texture2D" uid="uid://ddnnkehmyioqr" path="res://SliderGrabberTrue.png" id="2_tgtbt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfeqt"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yidwr"]
+bg_color = Color(0.545949, 0.0739022, 0.0971286, 1)
+border_color = Color(0.690255, 0.0542179, 0.0258245, 1)
+
+[resource]
+default_font = ExtResource("1_7tnpn")
+/colors/red = Color(0.780392, 0.137255, 0, 1)
+/styles/c72300 = SubResource("StyleBoxFlat_qfeqt")
+HBoxContainer/colors/red = Color(0.780392, 0.137255, 0, 1)
+HSlider/icons/grabber = ExtResource("1_qfeqt")
+HSlider/icons/grabber_highlight = ExtResource("2_tgtbt")
+HSlider/styles/slider = SubResource("StyleBoxFlat_yidwr")
+OptionButton/colors/icon_disabled_color = Color(0.541176, 0, 0, 1)
+OptionButton/colors/icon_focus_color = Color(0.541176, 0, 0, 1)
+OptionButton/colors/icon_hover_color = Color(0.541176, 0, 0, 1)
+OptionButton/colors/icon_hover_pressed_color = Color(0.541176, 0, 0, 1)
+OptionButton/colors/icon_normal_color = Color(0.539863, 1.03481e-06, 2.88785e-07, 1)
+OptionButton/colors/icon_pressed_color = Color(0.541176, 0, 0, 1)
+OptionButton/constants/arrow_margin = 12
+OptionButton/constants/h_separation = 15
+OptionButton/constants/icon_max_width = -100
+OptionButton/constants/line_spacing = 2
+OptionButton/constants/outline_size = -15
+OptionButton/font_sizes/font_size = 10

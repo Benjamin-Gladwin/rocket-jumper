@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://csnrl2xuttmba"]
+
+[ext_resource type="Texture2D" uid="uid://cdfcqfdafpl2m" path="res://wizurrd1.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://r02ann7u182e" path="res://player.gd" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dp2xk1oja28j" path="res://wizurrd2.png" id="3_hqtel"]
+[ext_resource type="Texture2D" uid="uid://duqrfitvuj84d" path="res://shotgun.png" id="4_hqtel"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hqtel")
+}],
+"loop": true,
+"name": &"wiz",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
+radius = 45.2
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("2_onrkg")
+speed = null
+health = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_onrkg")
+animation = &"wiz"
+frame = 1
+frame_progress = 0.116692
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 34)
+shape = SubResource("CircleShape2D_4flbx")
+one_way_collision_margin = 1.5
+debug_color = Color(0, 0.64716, 0.218617, 0.42)
+
+[node name="Gun" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(177, 19)
+scale = Vector2(4, 4)
+texture = ExtResource("4_hqtel")

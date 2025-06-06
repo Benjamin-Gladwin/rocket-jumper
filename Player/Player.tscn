@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=3 uid="uid://u3h44x50w722"]
+
+[ext_resource type="Texture2D" uid="uid://2idxqqv1vjg" path="res://Assets/frame1.png" id="2_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://cscxlgpte5gyh" path="res://Assets/PixelRocketLauncher.png" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://d13dbj25g2iev" path="res://Assets/frame2.png" id="3_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://b2b5axmpfh1gf" path="res://Assets/frame3.png" id="4_wi0c6"]
+[ext_resource type="Texture2D" uid="uid://dpp11fa2wbsh7" path="res://Assets/frame4.png" id="5_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://d1jcakifpx07a" path="res://Assets/frame5.png" id="6_3tkgg"]
+[ext_resource type="Texture2D" uid="uid://ddvygv0iyqg1t" path="res://Assets/Idle.png" id="7_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://b4ilr7cfx0w3q" path="res://Assets/crouch.png" id="7_wi0c6"]
+
+[sub_resource type="GDScript" id="GDScript_s1rgi"]
+script/source = "extends CharacterBody2D
+#Make Line above apply to your desired node
+
+#DON'T FORGET TO ADD THE INDENTATION!
+
+const SPEED = 200
+const GRAVITY = 500
+const Jumpheight = 200
+
+func _physics_process(delta: float):
+	velocity.x = 0
+
+	if Input.is_action_pressed(\"ui_right\"):
+		velocity.x += SPEED
+	if Input.is_action_pressed(\"ui_left\"):
+		velocity.x = -SPEED
+	if Input.is_action_pressed(\"ui_up\") and is_on_floor():
+		velocity.y -= Jumpheight
+
+	velocity.y += GRAVITY * delta
+
+	move_and_slide()
+
+
+func _ready() -> void:
+	pass
+
+var gunz = [
+	load(\"res://Assets/PixelRocketLauncher.png\"),
+	]
+
+var count = 0
+#Input
+#func _physics_process(delta):
+#	velocity.x = 0
+
+#	if Input.is_action_pressed(\"crosshair\"):
+#		Input.set_custom_mouse_cursor(crosshair, 0, Vector2(25,25))
+	
+
+	
+func _draw():
+	var mouse = get_viewport().get_mouse_position()
+	var pos = position + Vector2(0,-25)
+	$Gun.rotation = -atan2(pos.x-mouse.x,pos.y-mouse.y) - deg_to_rad(90)
+	
+#func _holycraplois(mleh):
+#	health = mleh
+	
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dtqjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5ncpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wi0c6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hp6x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3tkgg")
+}],
+"loop": true,
+"name": &"Player",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wi0c6")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5ncpa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi0c6"]
+size = Vector2(20, 109)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtqjt"]
+radius = 27.0
+height = 206.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(0, 2)
+motion_mode = 1
+script = SubResource("GDScript_s1rgi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_onrkg")
+animation = &"idle"
+
+[node name="Gun" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -25)
+scale = Vector2(2, 2)
+texture = ExtResource("2_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 77)
+shape = SubResource("RectangleShape2D_wi0c6")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, 1)
+shape = SubResource("CapsuleShape2D_dtqjt")
+one_way_collision_margin = 1.5
+debug_color = Color(0, 0.64716, 0.218617, 0.42)

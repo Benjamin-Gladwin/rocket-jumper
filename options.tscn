@@ -1,0 +1,188 @@
+[gd_scene load_steps=21 format=3 uid="uid://rmt6ebxhjyyc"]
+
+[ext_resource type="Script" uid="uid://rc53d707vyqw" path="res://options.gd" id="1_se8ut"]
+[ext_resource type="FontFile" uid="uid://dfjm3jek6n0xx" path="res://upheaval/upheavtt.ttf" id="2_ao2gm"]
+[ext_resource type="Theme" uid="uid://c1b2k2fqs1j3c" path="res://Theme1.tres" id="2_vmi34"]
+[ext_resource type="Texture2D" uid="uid://khp0453jfq4x" path="res://Checkboxtrue.png" id="3_07a1d"]
+[ext_resource type="Texture2D" uid="uid://cascrqyywsx3g" path="res://Assets/downarrowmedium.png" id="3_w5qgn"]
+[ext_resource type="Texture2D" uid="uid://70lkdiu0j3g7" path="res://Checkboxfalse.png" id="4_p8250"]
+[ext_resource type="Script" uid="uid://dkkar002i4enq" path="res://resolutions.gd" id="5_o5iem"]
+[ext_resource type="Texture2D" uid="uid://yx23j67vjgoj" path="res://SliderGrabber.png" id="5_p8250"]
+[ext_resource type="Texture2D" uid="uid://ddnnkehmyioqr" path="res://SliderGrabberTrue.png" id="6_kls10"]
+[ext_resource type="Texture2D" uid="uid://polw1khjbfkh" path="res://Assets/MainMenuTV.png" id="7_0kfld"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmi34"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.780392, 0.137255, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5qgn"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.78029, 0.13879, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.780392, 0.137255, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnkuw"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51314"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq7h2"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bfjn"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5xj6"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwfyw"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1yhy"]
+bg_color = Color(0.780392, 0.137255, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kls10"]
+color = Color(0.423185, 9.08468e-07, 3.1285e-07, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 5
+
+[node name="Options" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_se8ut")
+
+[node name="Resolutions" type="OptionButton" parent="."]
+z_index = 7
+layout_mode = 0
+offset_left = 86.0006
+offset_top = 286.0
+offset_right = 474.001
+offset_bottom = 367.0
+theme = ExtResource("2_vmi34")
+theme_override_fonts/font = ExtResource("2_ao2gm")
+theme_override_font_sizes/font_size = 53
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_vmi34")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w5qgn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_qnkuw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_51314")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wq7h2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_8bfjn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b5xj6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_hwfyw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r1yhy")
+theme_override_icons/arrow = ExtResource("3_w5qgn")
+flat = true
+script = ExtResource("5_o5iem")
+
+[node name="FullscreenText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 70.0
+offset_right = 689.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("2_ao2gm")
+theme_override_font_sizes/font_size = 100
+text = "Fullscreen"
+
+[node name="FullscreenToggle" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 88.0
+offset_right = 845.0
+offset_bottom = 146.0
+scale = Vector2(1.19972, 1.22222)
+theme_override_icons/checked = ExtResource("3_07a1d")
+theme_override_icons/unchecked = ExtResource("4_p8250")
+action_mode = 0
+flat = true
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 193.0
+offset_right = 697.0
+offset_bottom = 243.0
+theme_override_icons/grabber = ExtResource("5_p8250")
+theme_override_icons/grabber_highlight = ExtResource("5_p8250")
+theme_override_icons/grabber_disabled = ExtResource("6_kls10")
+theme_override_styles/slider = SubResource("StyleBoxLine_kls10")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 167.0
+offset_right = 389.0
+offset_bottom = 257.0
+theme_override_fonts/font = ExtResource("2_ao2gm")
+theme_override_font_sizes/font_size = 100
+text = "Sound"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 337.5)
+scale = Vector2(23.04, 22.5)
+texture = ExtResource("7_0kfld")
+
+[node name="Back" type="Button" parent="."]
+z_index = 8
+layout_mode = 0
+offset_left = 85.0
+offset_top = 485.0
+offset_right = 338.0
+offset_bottom = 583.0
+theme_override_fonts/font = ExtResource("2_ao2gm")
+theme_override_font_sizes/font_size = 100
+text = "Back"
+flat = true
+
+[node name="Quit" type="Button" parent="."]
+z_index = 6
+layout_mode = 0
+offset_left = 810.0
+offset_top = 485.0
+offset_right = 1048.0
+offset_bottom = 583.0
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+flat = true
+
+[connection signal="hidden" from="." to="." method="_on_hidden"]
+[connection signal="item_selected" from="Resolutions" to="." method="ResolutionSelected"]
+[connection signal="item_selected" from="Resolutions" to="Resolutions" method="_on_item_selected"]
+[connection signal="button_down" from="FullscreenToggle" to="." method="_on_fullscreen_toggle_button_down"]
+[connection signal="button_up" from="FullscreenToggle" to="." method="_on_fullscreen_toggle_button_up"]
+[connection signal="pressed" from="FullscreenToggle" to="." method="_on_fullscreen_toggle_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
